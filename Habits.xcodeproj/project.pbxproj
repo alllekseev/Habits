@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A21E2662A619C6700AD8BFE /* UICollectionViewDiffableDataSource+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A21E2652A619C6700AD8BFE /* UICollectionViewDiffableDataSource+ViewModel.swift */; };
+		2A21E2682A61A91F00AD8BFE /* NamedSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A21E2672A61A91F00AD8BFE /* NamedSectionHeaderView.swift */; };
 		2A83AEEF2A5E7DF400DF97CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A83AEEE2A5E7DF400DF97CF /* AppDelegate.swift */; };
 		2A83AEF12A5E7DF400DF97CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A83AEF02A5E7DF400DF97CF /* SceneDelegate.swift */; };
 		2A83AEF62A5E7DF400DF97CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A83AEF42A5E7DF400DF97CF /* Main.storyboard */; };
@@ -28,6 +30,7 @@
 		2A83AF3F2A5E905C00DF97CF /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A83AF3E2A5E905C00DF97CF /* ErrorHandling.swift */; };
 		2A83AF432A5E90A300DF97CF /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A83AF422A5E90A300DF97CF /* APIRequest.swift */; };
 		2A83AF452A5E98CC00DF97CF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A83AF442A5E98CC00DF97CF /* APIService.swift */; };
+		2A83AF472A5EB70B00DF97CF /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A83AF462A5EB70A00DF97CF /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A21E2652A619C6700AD8BFE /* UICollectionViewDiffableDataSource+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewDiffableDataSource+ViewModel.swift"; sourceTree = "<group>"; };
+		2A21E2672A61A91F00AD8BFE /* NamedSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedSectionHeaderView.swift; sourceTree = "<group>"; };
 		2A83AEEB2A5E7DF400DF97CF /* Habits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A83AEEE2A5E7DF400DF97CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A83AEF02A5E7DF400DF97CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +78,7 @@
 		2A83AF3E2A5E905C00DF97CF /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		2A83AF422A5E90A300DF97CF /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		2A83AF442A5E98CC00DF97CF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		2A83AF462A5EB70A00DF97CF /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +183,7 @@
 			children = (
 				2A83AF3E2A5E905C00DF97CF /* ErrorHandling.swift */,
 				2A83AF222A5E80D900DF97CF /* Resources.swift */,
+				2A83AF462A5EB70A00DF97CF /* Settings.swift */,
 				2A83AF212A5E80C900DF97CF /* Extensions */,
 			);
 			path = Helpers;
@@ -185,6 +192,7 @@
 		2A83AF212A5E80C900DF97CF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2A21E2652A619C6700AD8BFE /* UICollectionViewDiffableDataSource+ViewModel.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -210,6 +218,7 @@
 		2A83AF262A5E856100DF97CF /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				2A21E2672A61A91F00AD8BFE /* NamedSectionHeaderView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -411,12 +420,15 @@
 				2A83AF2C2A5E890200DF97CF /* HabitCollectionViewController.swift in Sources */,
 				2A83AF362A5E8BB300DF97CF /* UserDetailViewController.swift in Sources */,
 				2A83AEEF2A5E7DF400DF97CF /* AppDelegate.swift in Sources */,
+				2A21E2682A61A91F00AD8BFE /* NamedSectionHeaderView.swift in Sources */,
 				2A83AF322A5E895700DF97CF /* PeopleCollectionViewController.swift in Sources */,
 				2A83AF3D2A5E8E7B00DF97CF /* Color.swift in Sources */,
 				2A83AF342A5E8B8E00DF97CF /* HabitDetailViewController.swift in Sources */,
 				2A83AF392A5E8E0000DF97CF /* Habit.swift in Sources */,
 				2A83AF432A5E90A300DF97CF /* APIRequest.swift in Sources */,
+				2A83AF472A5EB70B00DF97CF /* Settings.swift in Sources */,
 				2A83AF3F2A5E905C00DF97CF /* ErrorHandling.swift in Sources */,
+				2A21E2662A619C6700AD8BFE /* UICollectionViewDiffableDataSource+ViewModel.swift in Sources */,
 				2A83AF2E2A5E891C00DF97CF /* HomeCollectionViewController.swift in Sources */,
 				2A83AF302A5E894E00DF97CF /* LogHabitCollectionViewController.swift in Sources */,
 				2A83AEF12A5E7DF400DF97CF /* SceneDelegate.swift in Sources */,
