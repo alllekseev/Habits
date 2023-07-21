@@ -10,23 +10,22 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class HabitCollectionViewController: UICollectionViewController {
-    var habitsRequestTask: Task<Void, Never>? = nil
+    var habitsRequestTask: Task<Void, Never>?
     deinit { habitsRequestTask?.cancel() }
-    
+
     // MARK: defined typealias
     typealias DataSourceType = UICollectionViewDiffableDataSource<ViewModel.Section, ViewModel.Item>
-    
-    
+
     // MARK: ViewModelEnum
     enum ViewModel {
         enum Section: Hashable, Comparable {
             case favorites
             case category(_ category: Category)
-            
+
             static func < (lhs: Section, rhs: Section) -> Bool {
                 switch (lhs, rhs) {
-                case (.category(let l), .category(let r)):
-                    return l.name < r.name
+                case (.category(let left), .category(let right)):
+                    return left.name < right.name
                 case (.favorites, _):
                     return true
                 case (_, .favorites):
@@ -34,10 +33,10 @@ class HabitCollectionViewController: UICollectionViewController {
                 }
             }
         }
-        
+
         typealias Item = Habit
     }
-    
+
     // MARK: Model Structure
     struct Model {
         var habitsByName = [String: Habit]()
@@ -45,14 +44,14 @@ class HabitCollectionViewController: UICollectionViewController {
             return Settings.shared.favoriteHabits
         }
     }
-    
+
     // MARK: defined variables
     var dataSource: DataSourceType!
     var model = Model()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         dataSource = createDataSource()
         collectionView.dataSource = dataSource
         collectionView.collectionViewLayout = createLayout()
@@ -60,13 +59,13 @@ class HabitCollectionViewController: UICollectionViewController {
                                 forSupplementaryViewOfKind: R.Strings.SectionHeader.kind.identifier,
                                 withReuseIdentifier: R.Strings.SectionHeader.reuse.identifier)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         update()
     }
-    
+
     func update() {
         habitsRequestTask?.cancel()
         habitsRequestTask = Task {
@@ -76,11 +75,11 @@ class HabitCollectionViewController: UICollectionViewController {
                 self.model.habitsByName = [:]
             }
             self.updateCollectionView()
-            
+
             habitsRequestTask = nil
         }
     }
-    
+
     func updateCollectionView() {
         var itemsBySection = model.habitsByName.values.reduce(
             into: [ViewModel.Section: [ViewModel.Item]]()) { partial, habit in
@@ -91,59 +90,59 @@ class HabitCollectionViewController: UICollectionViewController {
                 } else {
                     section = .category(habit.category)
                 }
-                
+
                 partial[section, default: []].append(item)
             }
-        
+
         itemsBySection = itemsBySection.mapValues { $0.sorted() }
-        
+
         let sectionIDs = itemsBySection.keys.sorted()
-        
+
         dataSource.applySnapshotUsing(sectionIDs: sectionIDs, itemsBySection: itemsBySection)
     }
-    
+
     // MARK: createDataSource()
     func createDataSource() -> DataSourceType {
         let dataSource = DataSourceType(collectionView: collectionView) { (collectionView, indexPath, item) in
-            
+
             let cell = collectionView
                 .dequeueReusableCell(
-                    withReuseIdentifier: "Habit",
+                    withReuseIdentifier: R.Strings.ReuseIdentifier.habit,
                     for: indexPath
                 ) as! UICollectionViewListCell
-            
+
             var content = cell.defaultContentConfiguration()
             content.text = item.name
             cell.contentConfiguration = content
-            
+
             return cell
         }
-        
-        dataSource.supplementaryViewProvider = { (collectionView, kind, indexPath) in
-            
+
+        dataSource.supplementaryViewProvider = { (collectionView, _, indexPath) in
+
             let header = collectionView
                 .dequeueReusableSupplementaryView(
                     ofKind: R.Strings.SectionHeader.kind.identifier,
                     withReuseIdentifier: R.Strings.SectionHeader.reuse.identifier,
                     for: indexPath
                 ) as! NamedSectionHeaderView
-            
+
             let section = dataSource.snapshot().sectionIdentifiers[indexPath.section]
-            
+
             switch section {
             case .favorites:
                 header.nameLabel.text = R.Strings.Habits.headerFavorites
             case .category(let category):
                 header.nameLabel.text = category.name
             }
-            
+
             return header
-            
+
         }
-        
+
         return dataSource
     }
-    
+
     // MARK: createLayout()
     func createLayout() -> UICollectionViewCompositionalLayout {
         let itemSize = NSCollectionLayoutSize(
@@ -151,7 +150,7 @@ class HabitCollectionViewController: UICollectionViewController {
             heightDimension: .fractionalHeight(1)
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
+
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
             heightDimension: .absolute(44)
@@ -159,7 +158,7 @@ class HabitCollectionViewController: UICollectionViewController {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                        repeatingSubitem: item,
                                                        count: 1)
-        
+
         let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                                 heightDimension: .absolute(36))
         let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
@@ -167,36 +166,38 @@ class HabitCollectionViewController: UICollectionViewController {
             elementKind: R.Strings.SectionHeader.kind.identifier,
             alignment: .top)
         sectionHeader.pinToVisibleBounds = true
-        
+
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: 0,
                                                         leading: 10,
                                                         bottom: 0,
                                                         trailing: 10)
         section.boundarySupplementaryItems = [sectionHeader]
-        
+
         return UICollectionViewCompositionalLayout(section: section)
     }
 }
 
 extension HabitCollectionViewController {
-    
-    override func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+
+    override func collectionView(_ collectionView: UICollectionView,
+                                 contextMenuConfigurationForItemAt indexPath: IndexPath,
+                                 point: CGPoint) -> UIContextMenuConfiguration? {
         let config = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
             let item = self.dataSource.itemIdentifier(for: indexPath)!
-            
+
             let favoriteToggle = UIAction(
                 title: self.model.favoriteHabits.contains(item)
                 ? R.Strings.Habits.unfavorite
-                : R.Strings.Habits.favorite) { (action) in
+                : R.Strings.Habits.favorite) { (_) in
                     Settings.shared.toggleFavourite(item)
                     self.updateCollectionView()
                 }
-            
+
             return UIMenu(title: "", image: nil, identifier: nil, options: [], children: [favoriteToggle])
         }
-        
+
         return config
     }
-    
+
 }
