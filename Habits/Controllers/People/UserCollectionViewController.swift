@@ -143,10 +143,10 @@ extension UserCollectionViewController {
 }
 
 extension UserCollectionViewController {
-    override func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemsAt indexPaths: [IndexPath], point: CGPoint) -> UIContextMenuConfiguration? {
+    override func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         let config = UIContextMenuConfiguration(identifier: nil,
                                                 previewProvider: nil) { (elements) -> UIMenu? in
-            guard let item = self.dataSource.itemIdentifier(for: indexPaths) else { return nil}
+            guard let item = self.dataSource.itemIdentifier(for: indexPath) else { return nil}
             
             let favoriteToggle = UIAction(
                 title: item.isFollowed
