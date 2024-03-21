@@ -33,6 +33,9 @@
 		2A83AF432A5E90A300DF97CF /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A83AF422A5E90A300DF97CF /* APIRequest.swift */; };
 		2A83AF452A5E98CC00DF97CF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A83AF442A5E98CC00DF97CF /* APIService.swift */; };
 		2A83AF472A5EB70B00DF97CF /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A83AF462A5EB70A00DF97CF /* Settings.swift */; };
+		2A851B492BAC351B002A0223 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2A851B482BAC351B002A0223 /* .gitignore */; };
+		2AEAF0EF2A6A620200081C10 /* HabitStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEAF0EE2A6A620200081C10 /* HabitStatistics.swift */; };
+		2AEAF0F12A6A623700081C10 /* UserCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEAF0F02A6A623700081C10 /* UserCount.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +86,9 @@
 		2A83AF422A5E90A300DF97CF /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		2A83AF442A5E98CC00DF97CF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		2A83AF462A5EB70A00DF97CF /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		2A851B482BAC351B002A0223 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		2AEAF0EE2A6A620200081C10 /* HabitStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitStatistics.swift; sourceTree = "<group>"; };
+		2AEAF0F02A6A623700081C10 /* UserCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +119,7 @@
 		2A83AEE22A5E7DF400DF97CF = {
 			isa = PBXGroup;
 			children = (
+				2A851B482BAC351B002A0223 /* .gitignore */,
 				2A83AEED2A5E7DF400DF97CF /* Habits */,
 				2A83AF042A5E7DF500DF97CF /* HabitsTests */,
 				2A83AF0E2A5E7DF500DF97CF /* HabitsUITests */,
@@ -269,6 +276,8 @@
 				2A83AF3C2A5E8E7B00DF97CF /* Color.swift */,
 				2A83AF382A5E8E0000DF97CF /* Habit.swift */,
 				2A1216152A6654A4002FF236 /* User.swift */,
+				2AEAF0EE2A6A620200081C10 /* HabitStatistics.swift */,
+				2AEAF0F02A6A623700081C10 /* UserCount.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -394,6 +403,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A851B492BAC351B002A0223 /* .gitignore in Resources */,
 				2A83AEFB2A5E7DF500DF97CF /* LaunchScreen.storyboard in Resources */,
 				2A83AEF82A5E7DF500DF97CF /* Assets.xcassets in Resources */,
 				2A83AEF62A5E7DF400DF97CF /* Main.storyboard in Resources */,
@@ -429,12 +439,14 @@
 				2A21E2682A61A91F00AD8BFE /* NamedSectionHeaderView.swift in Sources */,
 				2A83AF3D2A5E8E7B00DF97CF /* Color.swift in Sources */,
 				2A83AF342A5E8B8E00DF97CF /* HabitDetailViewController.swift in Sources */,
+				2AEAF0F12A6A623700081C10 /* UserCount.swift in Sources */,
 				2A83AF392A5E8E0000DF97CF /* Habit.swift in Sources */,
 				2A83AF432A5E90A300DF97CF /* APIRequest.swift in Sources */,
 				2A83AF472A5EB70B00DF97CF /* Settings.swift in Sources */,
 				2A83AF3F2A5E905C00DF97CF /* Errors.swift in Sources */,
 				2A21E2662A619C6700AD8BFE /* UICollectionViewDiffableDataSource+ViewModel.swift in Sources */,
 				2A83AF2E2A5E891C00DF97CF /* HomeCollectionViewController.swift in Sources */,
+				2AEAF0EF2A6A620200081C10 /* HabitStatistics.swift in Sources */,
 				2A12161A2A66CBA0002FF236 /* UIView + ext.swift in Sources */,
 				2A1216182A669335002FF236 /* UserCollectionViewController.swift in Sources */,
 				2A83AF302A5E894E00DF97CF /* LogHabitCollectionViewController.swift in Sources */,

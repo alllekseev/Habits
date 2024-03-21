@@ -38,6 +38,7 @@ enum Resources {
         enum ReuseIdentifier {
             static let habit = "Habit"
             static let user = "User"
+            static let userCount = "UserCount"
         }
     }
 

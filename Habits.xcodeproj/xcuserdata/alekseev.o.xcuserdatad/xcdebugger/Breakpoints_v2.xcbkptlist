@@ -88,6 +88,36 @@
                   endingLineNumber = "39"
                   offsetFromSymbolStart = "152">
                </Location>
+               <Location
+                  uuid = "577F7FF6-6912-43F8-8101-B8606C19B3A8 - d86acc6a44751774"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Habits.UserCollectionViewController.update() -&gt; ()"
+                  moduleName = "Habits"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alekseev.o/Documents/iOS_Developer/study-projects/Habits/Habits/Controllers/People/UserCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "168">
+               </Location>
+               <Location
+                  uuid = "577F7FF6-6912-43F8-8101-B8606C19B3A8 - 85f44a515fb33177"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Habits.UserCollectionViewController.update() -&gt; ()"
+                  moduleName = "Habits"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alekseev.o/Documents/iOS_Developer/study-projects/Habits/Habits/Controllers/People/UserCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "180">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
